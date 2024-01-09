@@ -1,0 +1,77 @@
+
+# Q2
+
+PREFIX ho: <http://www.semanticweb.org/spatiotemporalHospitalOntology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?m ?tm ?ep ?p ?ev ?bed ?loc 
+{ 
+    VALUES (?start ?end) {("2022-03-17T00:00:00"^^xsd:dateTime "2022-03-19T00:00:00"^^xsd:dateTime)}
+    VALUES ?loc_id {1040}
+    
+    # TestMicro with their Patients and Episodes
+    ?tm ho:eventFromEpisode ?ep;
+    	a ho:TestMicro;
+     	ho:start ?tm_start;
+		ho:hasFound ?m.
+    ?ep ho:episodeFromPatient ?p.
+    ?p ho:id ?p_id.
+    
+    # Other Events from the Patients and their Beds
+    ?ev ho:eventFromEpisode ?ep;
+        a ho:Hospitalization;
+		ho:start ?ev_start;
+  		ho:end ?ev_end;
+    	ho:hasLocation ?bed.
+    
+    # Check if the Bed is in the Location
+    ?loc (^ho:placedIn)+ ?bed;
+		a ho:Location;
+  		ho:id ?loc_id.
+    
+    FILTER((?tm_start >= ?start) && (?tm_start <= ?end))
+    FILTER((?ev_start >= ?start && ?ev_end <= ?end) 
+			|| (?ev_start <= ?start && ?ev_end >= ?start) 
+			|| (?ev_start <= ?end && ?ev_end >= ?end))
+	# The result will only have Patients in whom the bacteria was detected while they were in the Location
+	FILTER ((?tm_start >= ?ev_start) && (?tm_start <= ?ev_end))
+	
+	# Get the Microorganims that have been found more than 2 times 
+	{	
+		SELECT ?m
+		{ 
+			VALUES (?start ?end) {("2022-03-17T00:00:00"^^xsd:dateTime "2022-03-19T00:00:00"^^xsd:dateTime)}
+			VALUES ?loc_id {1040}
+			
+			# TestMicro with their Patients and Episodes
+			?tm ho:eventFromEpisode ?ep;
+				a ho:TestMicro;
+				ho:start ?tm_start;
+				ho:hasFound ?m.
+			?ep ho:episodeFromPatient ?p.
+			?p ho:id ?p_id.
+			
+			# Other Events from the Patients and their Beds
+			?ev ho:eventFromEpisode ?ep;
+				a ho:Hospitalization;
+				ho:start ?ev_start;
+				ho:end ?ev_end;
+				ho:hasLocation ?bed.
+			
+			# Check if the Bed is in the Location
+			?loc (^ho:placedIn)+ ?bed;
+				a ho:Location;
+				ho:id ?loc_id.
+			
+			FILTER((?tm_start >= ?start) && (?tm_start <= ?end))
+			FILTER((?ev_start >= ?start && ?ev_end <= ?end) 
+					|| (?ev_start <= ?start && ?ev_end >= ?start) 
+					|| (?ev_start <= ?end && ?ev_end >= ?end))
+			# The result will only have Patients in whom the bacteria was detected while they were in the Location
+			FILTER ((?tm_start >= ?ev_start) && (?tm_start <= ?ev_end))
+		} GROUP BY ?m
+		HAVING (COUNT(DISTINCT ?p_id) >= 2)
+	}
+	
+} ORDER BY ?p

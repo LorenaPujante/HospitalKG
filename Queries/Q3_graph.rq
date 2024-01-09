@@ -1,0 +1,187 @@
+
+# Q3	->	Graph
+
+PREFIX ho: <http://www.semanticweb.org/spatiotemporalHospitalOntology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?p ?ep ?ev ?p1 ?ep1 ?ev1 ?huA ?bed1 ?bed ?room1 ?room ?relNX1 ?relNX2 ?area1 ?area ?lz ?pathToMiddleLoc1 ?pathToMiddleLoc2
+{
+	{
+		VALUES (?start ?end) {("2022-01-26T00:00:00"^^xsd:dateTime "2022-02-09T00:00:00"^^xsd:dateTime)}
+		VALUES (?m_id ?p1_id) {(1078 435)}
+		
+		# Microorganismo
+		?m a ho:Microorganism;
+		   ho:id ?m_id .
+		   
+		
+		# Input Patient (p1)
+		?p1 a ho:Patient;
+			ho:id ?p1_id .
+			
+		# Events from p1, with their HU and Bed
+		?ev1 ho:eventFromEpisode ?ep1;
+			ho:start ?ev1_start;
+			ho:end ?ev1_end;
+			ho:hasLocation ?bed1.
+		?ep1 ho:episodeFromPatient ?p1.
+			
+		
+		# Patients (different from p1) who had the Microorganism
+		?tm ho:hasFound ?m;
+			ho:eventFromEpisode ?ep ;
+			ho:start ?tm_start;
+			ho:end ?tm_end.
+		?ep ho:episodeFromPatient ?p .
+		
+		# Events from these Patients, with their HU and Bed
+		?ev ho:eventFromEpisode ?ep ;
+			ho:start ?ev_start;
+			ho:end ?ev_end;
+			ho:hasLocation ?bed.
+			
+		# Rooms de los eventos
+		?bed1 ho:placedIn ?room1.
+		?bed ho:placedIn ?room.
+			
+		
+		# OPTIONAL PATHS
+		
+		# Shared Locations between p1 and the rest (up to Area)
+		OPTIONAL {
+			?bed1 ho:placedIn* ?mid.
+			?mid (^ho:placedIn)* ?bed.
+			FILTER (!regex(str(?mid), "http://www.semanticweb.org/spatiotemporalHospitalOntology#(Floor|Building)/.+"))
+		}
+		
+		# Rooms that are Next_To but that are from different Areas
+		OPTIONAL {
+			?bed ho:placedIn ?room.
+			?bed1 ho:placedIn ?room1.
+			OPTIONAL {?room ?relNX1 ?room1.
+						FILTER((str(?relNX1) = "http://www.semanticweb.org/spatiotemporalHospitalOntology#nextTo"))}
+			OPTIONAL {?room1 ?relNX2 ?room.
+						FILTER((str(?relNX2) = "http://www.semanticweb.org/spatiotemporalHospitalOntology#nextTo"))}
+			OPTIONAL {?room1 ho:placedIn+ ?area1.
+						?area1 a ho:Area.}
+			OPTIONAL {?room (ho:placedIn)+ ?area.
+						?area a ho:Area.}
+			FILTER(?area1 != ?area  ||  (isBlank(?area1) && isBlank(?area)))
+		}
+		
+		# Areas that are in the same LogicZone
+		OPTIONAL {
+			?bed1 ho:placedIn+ ?area1.
+			?area1 a ho:Area.
+			?bed ho:placedIn+ ?area.
+			?area a ho:Area.
+			?lz ho:hasArea ?area1.
+			?lz ho:hasArea ?area.
+			
+			FILTER(?area1 != ?area)
+		}
+		
+		# Events that happen in the same HU
+		OPTIONAL {
+			?ev1 ho:hasHospUnit ?huA.
+			?ev ho:hasHospUnit ?huA.
+		}
+		
+		# If a Patient does not match any of the optional paths, it won't be included in the result
+		FILTER(!isBlank(?mid)  ||  !isBlank(?relNX1)  ||  !isBlank(?relNX2)  ||  !isBlank(?lz)  ||  !isBlank(?huA))
+		
+		
+		FILTER(?p != ?p1)
+		
+		FILTER((?tm_start >= ?start) && (?tm_end <= ?end))
+		FILTER((?ev_start >= ?start && ?ev_end <= ?end) 
+				|| (?ev_start <= ?start && ?ev_end >= ?start) 
+				|| (?ev_start <= ?end && ?ev_end >= ?end))
+		FILTER((?ev1_start >= ?start && ?ev1_end <= ?end) 
+				|| (?ev1_start <= ?start && ?ev1_end >= ?start) 
+				|| (?ev1_start <= ?end && ?ev1_end >= ?end))
+				
+		# Events from both Patients must happen at the same time (with a margin of occurrence on the SAME DAY)
+		BIND ((DAY(?ev_start)) as ?ev_s_date)
+		BIND ((DAY(?ev_end)) as ?ev_e_date)
+		BIND ((DAY(?ev1_start)) as ?ev1_s_date)
+		BIND ((DAY(?ev1_end)) as ?ev1_e_date)
+		FILTER((?ev1_s_date > ?ev_s_date && ?ev1_s_date <=  ?ev_e_date) 
+				|| (?ev1_s_date <= ?ev_s_date && ?ev1_e_date >= ?ev_s_date) 
+				|| (?ev1_s_date >= ?ev_s_date && ?ev1_e_date <= ?ev_e_date))
+	}
+	
+	UNION	
+	{
+		# Events that happen in the same Area  ->  Path between ?bed y ?bed1
+		SELECT ?bed ?bed1 (group_concat(DISTINCT ?mid; separator=", ") AS ?pathToMiddleLoc1) (group_concat(DISTINCT ?mid2; separator=", ") AS ?pathToMiddleLoc2) 
+		{
+			{
+				SELECT DISTINCT ?bed ?bed1 {
+					VALUES (?start ?end) {("2022-01-26T00:00:00"^^xsd:dateTime "2022-02-09T00:00:00"^^xsd:dateTime)}
+					VALUES (?m_id ?p1_id) {(1078 435)}
+					
+					# Microorganism
+					?m a ho:Microorganism;
+					   ho:id ?m_id .
+					   
+					
+					# Input Patient (p1)
+					?p1 a ho:Patient;
+						ho:id ?p1_id .
+						
+					# Events from p1, with their HU and Bed
+					?ev1 ho:eventFromEpisode/ho:episodeFromPatient ?p1;
+						ho:start ?ev1_start;
+						ho:end ?ev1_end;
+						ho:hasLocation ?bed1.
+						
+					
+					# Patients (different from p1) who had the Microorganism 
+					?tm ho:hasFound ?m;
+						ho:eventFromEpisode ?ep ;
+						ho:start ?tm_start;
+						ho:end ?tm_end.
+					?ep ho:episodeFromPatient ?p .
+					
+					# Events from these Patients, with their HU and Bed
+					?ev ho:eventFromEpisode ?ep ;
+						ho:start ?ev_start;
+						ho:end ?ev_end;
+						ho:hasLocation ?bed.
+						
+						
+					FILTER(?p != ?p1)
+				
+					FILTER((?tm_start >= ?start) && (?tm_end <= ?end))
+					FILTER((?ev_start >= ?start && ?ev_end <= ?end) 
+							|| (?ev_start <= ?start && ?ev_end >= ?start) 
+							|| (?ev_start <= ?end && ?ev_end >= ?end))
+					FILTER((?ev1_start >= ?start && ?ev1_end <= ?end) 
+							|| (?ev1_start <= ?start && ?ev1_end >= ?start) 
+							|| (?ev1_start <= ?end && ?ev1_end >= ?end))
+							
+					# Events from both Patients must happen at the same time (with a margin of occurrence on the SAME DAY)
+					BIND ((DAY(?ev_start)) as ?ev_s_date)
+					BIND ((DAY(?ev_end)) as ?ev_e_date)
+					BIND ((DAY(?ev1_start)) as ?ev1_s_date)
+					BIND ((DAY(?ev1_end)) as ?ev1_e_date)
+					FILTER((?ev1_s_date > ?ev_s_date && ?ev1_s_date <=  ?ev_e_date) 
+							|| (?ev1_s_date <= ?ev_s_date && ?ev1_e_date >= ?ev_s_date) 
+							|| (?ev1_s_date >= ?ev_s_date && ?ev1_e_date <= ?ev_e_date))
+				}
+			}
+			
+			# Get the path
+			?bed1 ho:placedIn* ?mid.
+			?mid ho:placedIn* ?midAux.
+			?midAux (^ho:placedIn)+ ?mid2.
+			?mid2 (^ho:placedIn)* ?bed.
+			FILTER (!regex(str(?mid), "http://www.semanticweb.org/spatiotemporalHospitalOntology#(Floor|Building)/.+"))
+			FILTER (!regex(str(?midAux), "http://www.semanticweb.org/spatiotemporalHospitalOntology#(Floor|Building)/.+"))
+			
+		} GROUP BY ?bed ?bed1
+	}
+	    
+} 

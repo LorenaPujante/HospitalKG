@@ -1,0 +1,35 @@
+
+# Q1
+
+PREFIX ho: <http://www.semanticweb.org/spatiotemporalHospitalOntology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?p
+WHERE { 
+	VALUES (?start ?end) {("2022-01-01T00:00:00"^^xsd:dateTime "2022-02-01T00:00:00"^^xsd:dateTime)}
+    VALUES (?m_id ?s_id) {(1078 2)}
+    
+    # TestMicro that have found the Microorganism
+	?m ^ho:hasFound ?tm;
+		ho:id ?m_id .
+	# Connection between the TestMicro and their Patients	
+    ?tm ho:eventFromEpisode ?ep ;
+        ho:start ?tm_start;
+        ho:end ?tm_end.
+	# Check if Patients have Events connected to a HospitalizationUnit from the Service 
+    ?ep ho:episodeFromPatient ?p .
+    ?ev ho:eventFromEpisode ?ep ;
+        ho:start ?ev_start;
+        ho:end ?ev_end;
+    	ho:hasHospUnit ?hu.
+    ?s ^ho:hospUnitFromService ?hu;
+    	ho:id ?s_id.
+    
+    FILTER((?tm_start >= ?start) && (?tm_end <= ?end))
+    FILTER((?ev_start >= ?start && ?ev_end <= ?end) 
+			|| (?ev_start <= ?start && ?ev_end >= ?start) 
+			|| (?ev_start <= ?end && ?ev_end >= ?end))
+	FILTER((?tm_start >= ?ev_start) && (?tm_end <= ?ev_end))	# The result will only have Patients in whom the bacteria was detected while they were in the Service
+    
+} 

@@ -1,0 +1,57 @@
+
+# Q6
+
+PREFIX ho: <http://www.semanticweb.org/spatiotemporalHospitalOntology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?p ?minDate
+{
+	VALUES (?start ?end) {("2022-01-26T00:00:00"^^xsd:dateTime "2022-02-09T00:00:00"^^xsd:dateTime)}
+    VALUES ?m_id {1078}
+    
+    # Input Microorganism
+    ?m a ho:Microorganism;
+    	ho:id ?m_id.
+		
+    # Input Patients
+    ?p a ho:Patient;
+		ho:id ?p_id.
+		
+    # Patients' TestMicro that are positive in the Microorganism
+    ?tm ho:eventFromEpisode/ho:episodeFromPatient ?p;
+		a ho:TestMicro;
+		ho:start ?tm_start;
+  		ho:hasFound ?m.
+
+    { # Get the lowest TestMicro datetime
+        SELECT DISTINCT (MIN(?tm1_start) as ?minDate)
+    	{
+            VALUES (?start ?end) {("2022-01-26T00:00:00"^^xsd:dateTime "2022-02-09T00:00:00"^^xsd:dateTime)}
+            VALUES ?m_id {1078}
+
+            # Input Microorganism
+            ?m1 a ho:Microorganism;
+                ho:id ?m_id.
+            
+			# Input Patients
+            ?p1 a ho:Patient;
+                ho:id ?p1_id.
+            
+			# Patients' TestMicro that are positive in the Microorganism
+            ?tm1 ho:eventFromEpisode/ho:episodeFromPatient ?p1;
+                a ho:TestMicro;
+                ho:start ?tm1_start;
+                ho:hasFound ?m1.
+
+            FILTER(?p1_id in (435, 379, 413, 444, 521))
+            FILTER((?tm1_start >= ?start) && (?tm1_start <= ?end))
+		}
+    } 
+    
+    FILTER(?p_id in (435, 379, 413, 444, 521))
+    FILTER((?tm_start >= ?start) && (?tm_start <= ?end))
+    
+	# The result will have the TestMicro whose date matches the lowest
+    FILTER(?tm_start = ?minDate)
+}
