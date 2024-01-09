@@ -1,0 +1,33 @@
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2000> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Location>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2000> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2000> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "2000"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2000> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "lz_0"^^<http://www.w3.org/2001/XMLSchema#string>.
+
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2000> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1662>.
+<< <http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2000> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1662> >> <http://www.semanticweb.org/spatiotemporalHospitalOntology#cost> "3"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2000> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1666>.
+<< <http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2000> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1666> >> <http://www.semanticweb.org/spatiotemporalHospitalOntology#cost> "3"^^<http://www.w3.org/2001/XMLSchema#float>.
+
+
+
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Location>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2001> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "2001"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2001> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "lz_1"^^<http://www.w3.org/2001/XMLSchema#string>.
+
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2001> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1705>.
+<< <http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2001> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1705> >> <http://www.semanticweb.org/spatiotemporalHospitalOntology#cost> "3"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2001> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1709>.
+<< <http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2001> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1709> >> <http://www.semanticweb.org/spatiotemporalHospitalOntology#cost> "3"^^<http://www.w3.org/2001/XMLSchema#float>.
+
+
+
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2002> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Location>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2002> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2002> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "2002"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2002> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "lz_2"^^<http://www.w3.org/2001/XMLSchema#string>.
+
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2002> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1792>.
+<< <http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2002> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1792> >> <http://www.semanticweb.org/spatiotemporalHospitalOntology#cost> "3"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2002> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1796>.
+<< <http://www.semanticweb.org/spatiotemporalHospitalOntology#LogicZone/2002> <http://www.semanticweb.org/spatiotemporalHospitalOntology#hasArea> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Area/1796> >> <http://www.semanticweb.org/spatiotemporalHospitalOntology#cost> "3"^^<http://www.w3.org/2001/XMLSchema#float>.
