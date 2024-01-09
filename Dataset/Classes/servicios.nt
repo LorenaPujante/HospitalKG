@@ -1,0 +1,48 @@
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1600> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1600> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "1600"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1600> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Emergency Service"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1600> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "ER"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1602> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1602> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "1602"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1602> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Intensive Care Unit Service"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1602> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "ICU"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1604> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1604> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "1604"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1604> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Radiology Service"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1604> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "RAD"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1606> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1606> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "1606"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1606> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Surgery Service"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/1606> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "SURG"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/2> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "2"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/2> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Service 0"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/2> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "S0"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/3> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "3"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/3> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Service 1"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/3> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "S1"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/4> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "4"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/4> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Service 2"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/4> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "S2"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/5> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "5"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/5> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Service 3"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/5> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "S3"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/6> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "6"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/6> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Service 4"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/6> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "S4"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/7> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "7"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/7> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Service 5"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/7> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "S5"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/8> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "8"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/8> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Service 6"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/8> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "S6"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/9> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/spatiotemporalHospitalOntology#Service>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/9> <http://www.semanticweb.org/spatiotemporalHospitalOntology#id> "9"^^<http://www.w3.org/2001/XMLSchema#integer>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/9> <http://www.semanticweb.org/spatiotemporalHospitalOntology#description> "Service 7"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.semanticweb.org/spatiotemporalHospitalOntology#Service/9> <http://www.semanticweb.org/spatiotemporalHospitalOntology#abbreviation> "S7"^^<http://www.w3.org/2001/XMLSchema#string>.
