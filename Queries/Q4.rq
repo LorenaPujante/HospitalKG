@@ -8,7 +8,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT DISTINCT ?p1 ?p ?ep1 ?ev1 ?ep ?ev ?bed1 ?bed	?room1 ?room ?relNX1 ?relNX2 ?area1 ?area ?lz ?pathToMiddleLoc1 ?pathToMiddleLoc2
 {
 	{
-		VALUES (?start ?end) {("2022-01-26T00:00:00"^^xsd:dateTime "2022-02-09T00:00:00"^^xsd:dateTime)}
+		VALUES (?start ?end) {("2023-06-04T00:00:00"^^xsd:dateTime "2023-06-08T23:59:59"^^xsd:dateTime)}
 		
 		# Input Patients (p1)
 		?p1 ^(ho:episodeFromPatient) ?ep1;
@@ -81,8 +81,8 @@ SELECT DISTINCT ?p1 ?p ?ep1 ?ev1 ?ep ?ev ?bed1 ?bed	?room1 ?room ?relNX1 ?relNX2
 	
 	
 		# p1 must be from the Input Patients, and p must not
-		FILTER(?p1_id in (435, 379, 413, 444, 521))
-		FILTER(?p_id not in (435, 379, 413, 444, 521))    
+		FILTER(?p1_id in (6863, 6912, 6922))
+		FILTER(?p_id not in (6863, 6912, 6922))    
 		
 		FILTER((?ev_start >= ?start && ?ev_end <= ?end) 
 				|| (?ev_start <= ?start && ?ev_end >= ?start) 
@@ -109,7 +109,7 @@ SELECT DISTINCT ?p1 ?p ?ep1 ?ev1 ?ep ?ev ?bed1 ?bed	?room1 ?room ?relNX1 ?relNX2
 		{
 			{
 				SELECT DISTINCT ?bed ?bed1 {
-					VALUES (?start ?end) {("2022-01-26T00:00:00"^^xsd:dateTime "2022-02-09T00:00:00"^^xsd:dateTime)}
+					VALUES (?start ?end) {("2023-06-04T00:00:00"^^xsd:dateTime "2023-06-08T23:59:59"^^xsd:dateTime)}
 		
 					# Input Patient (p1)
 					?p1 ^(ho:episodeFromPatient)/^(ho:eventFromEpisode) ?ev1;
@@ -133,8 +133,8 @@ SELECT DISTINCT ?p1 ?p ?ep1 ?ev1 ?ep ?ev ?bed1 ?bed	?room1 ?room ?relNX1 ?relNX2
 					
 					
 					# p1 must be from the Input Patients, and p must not
-					FILTER(?p1_id in (435, 379, 413, 444, 521))
-					FILTER(?p_id not in (435, 379, 413, 444, 521))    
+					FILTER(?p1_id in (6863, 6912, 6922))
+					FILTER(?p_id not in (6863, 6912, 6922))    
 					
 					FILTER((?ev_start >= ?start && ?ev_end <= ?end) 
 							|| (?ev_start <= ?start && ?ev_end >= ?start) 
