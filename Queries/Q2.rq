@@ -7,8 +7,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 SELECT ?m ?tm ?ep ?p ?ev ?bed ?loc 
 { 
-    VALUES (?start ?end) {("2022-03-17T00:00:00"^^xsd:dateTime "2022-03-19T00:00:00"^^xsd:dateTime)}
-    VALUES ?loc_id {1040}
+    VALUES (?start ?end) {("2023-06-08T00:00:00"^^xsd:dateTime "2023-06-08T23:59:59"^^xsd:dateTime)}
+    VALUES ?loc_id {1651}
     
     # TestMicro with their Patients and Episodes
     ?tm ho:eventFromEpisode ?ep;
@@ -41,8 +41,8 @@ SELECT ?m ?tm ?ep ?p ?ev ?bed ?loc
 	{	
 		SELECT ?m
 		{ 
-			VALUES (?start ?end) {("2022-03-17T00:00:00"^^xsd:dateTime "2022-03-19T00:00:00"^^xsd:dateTime)}
-			VALUES ?loc_id {1040}
+			VALUES (?start ?end) {("2023-06-08T00:00:00"^^xsd:dateTime "2023-06-08T23:59:59"^^xsd:dateTime)}
+			VALUES ?loc_id {1651}
 			
 			# TestMicro with their Patients and Episodes
 			?tm ho:eventFromEpisode ?ep;
