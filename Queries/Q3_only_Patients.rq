@@ -1,5 +1,12 @@
 
 # Q3	->	Only Patients
+
+# Parameters:
+#  - Start datetime: 2023-05-26T00:00:00
+#  - End datetime: 2023-06-08T23:59:59
+#  - Microorganism id: 1820
+#  - Patient id: 6348
+
 	
 PREFIX ho: <http://www.semanticweb.org/spatiotemporalHospitalOntology#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -7,7 +14,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 SELECT DISTINCT ?p
 {
-	VALUES (?start ?end) {("2023-05-26T00:00:00"^^xsd:dateTime "2023-05-30T23:59:59"^^xsd:dateTime)}
+	VALUES (?start ?end) {("2023-05-26T00:00:00"^^xsd:dateTime "2023-06-08T23:59:59"^^xsd:dateTime)}
 	VALUES (?m_id ?p1_id) {(1820 6348)}
     
     
