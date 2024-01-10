@@ -1,14 +1,21 @@
 
 # Q6
 
+# Parameters:
+#  - Start datetime: 2023-05-23T00:00:00
+#  - End datetime: 2023-06-08T23:59:59
+#  - Microorganism id: 1820
+#  - Patient ids: [6348,6611,6718,6728,6729,6747,6751,6752,6753,6756,6760,6788,6812,6817,6819,6822,6825,6833,6837,6861,6865,6866,6868,6880,6884,6887,6958,7008,7030,7034,7047,7071]
+
+
 PREFIX ho: <http://www.semanticweb.org/spatiotemporalHospitalOntology#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 SELECT DISTINCT ?p ?minDate
 {
-	VALUES (?start ?end) {("2022-01-26T00:00:00"^^xsd:dateTime "2022-02-09T00:00:00"^^xsd:dateTime)}
-    VALUES ?m_id {1078}
+	VALUES (?start ?end) {("2023-05-23T00:00:00"^^xsd:dateTime "2023-06-08T23:59:59"^^xsd:dateTime)}
+    VALUES ?m_id {1820}
     
     # Input Microorganism
     ?m a ho:Microorganism;
@@ -27,8 +34,8 @@ SELECT DISTINCT ?p ?minDate
     { # Get the lowest TestMicro datetime
         SELECT DISTINCT (MIN(?tm1_start) as ?minDate)
     	{
-            VALUES (?start ?end) {("2022-01-26T00:00:00"^^xsd:dateTime "2022-02-09T00:00:00"^^xsd:dateTime)}
-            VALUES ?m_id {1078}
+            VALUES (?start ?end) {("2023-05-25T00:00:00"^^xsd:dateTime "2023-06-08T23:59:59"^^xsd:dateTime)}
+            VALUES ?m_id {1820}
 
             # Input Microorganism
             ?m1 a ho:Microorganism;
@@ -44,12 +51,12 @@ SELECT DISTINCT ?p ?minDate
                 ho:start ?tm1_start;
                 ho:hasFound ?m1.
 
-            FILTER(?p1_id in (435, 379, 413, 444, 521))
+            FILTER(?p1_id in (6348,6611,6718,6728,6729,6747,6751,6752,6753,6756,6760,6788,6812,6817,6819,6822,6825,6833,6837,6861,6865,6866,6868,6880,6884,6887,6958,7008,7030,7034,7047,7071))
             FILTER((?tm1_start >= ?start) && (?tm1_start <= ?end))
 		}
     } 
     
-    FILTER(?p_id in (435, 379, 413, 444, 521))
+    FILTER(?p_id in (6348,6611,6718,6728,6729,6747,6751,6752,6753,6756,6760,6788,6812,6817,6819,6822,6825,6833,6837,6861,6865,6866,6868,6880,6884,6887,6958,7008,7030,7034,7047,7071))
     FILTER((?tm_start >= ?start) && (?tm_start <= ?end))
     
 	# The result will have the TestMicro whose date matches the lowest
