@@ -1,14 +1,21 @@
 
 # Q1
 
+# Parameters:
+#  - Start datetime: 2023-01-07T00:00:00
+#  - End datetime: 2023-01-14T23:59:59
+#  - Microorganism id: 1820
+#  - Service id: 8
+
+
 PREFIX ho: <http://www.semanticweb.org/spatiotemporalHospitalOntology#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 SELECT DISTINCT ?p
 WHERE { 
-	VALUES (?start ?end) {("2022-01-01T00:00:00"^^xsd:dateTime "2022-02-01T00:00:00"^^xsd:dateTime)}
-    VALUES (?m_id ?s_id) {(1078 2)}
+	VALUES (?start ?end) {("2023-01-07T00:00:00"^^xsd:dateTime "2023-01-14T23:59:59"^^xsd:dateTime)}
+    VALUES (?m_id ?s_id) {(1820 8)}
     
     # TestMicro that have found the Microorganism
 	?m ^ho:hasFound ?tm;
