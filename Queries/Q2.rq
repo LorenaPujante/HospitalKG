@@ -5,6 +5,13 @@ PREFIX ho: <http://www.semanticweb.org/spatiotemporalHospitalOntology#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
+# Parameters:
+#  - Start datetime: 2023-06-08T00:00:00
+#  - End datetime: 2023-06-08T23:59:59
+#  - Location Id: 1651
+#  - Number of infected patients: 2
+
+
 SELECT ?m ?tm ?ep ?p ?ev ?bed ?loc 
 { 
     VALUES (?start ?end) {("2023-06-08T00:00:00"^^xsd:dateTime "2023-06-08T23:59:59"^^xsd:dateTime)}
