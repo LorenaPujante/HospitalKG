@@ -1,6 +1,12 @@
 
 # Q5
 
+# Parameters:
+#  - Start datetime: 2023-01-07T00:00:00
+#  - End datetime: 2023-01-14T23:59:59
+#  - Patient ids: [303,351,1250,1164,1165,104,590,1100,1246,1247,1317]
+
+
 PREFIX ho: <http://www.semanticweb.org/spatiotemporalHospitalOntology#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -10,7 +16,7 @@ WHERE {
 
 	# SPATIAL DIMENSION
 	{	
-		VALUES (?start ?end) {("2023-03-01T00:00:00Z"^^xsd:dateTime "2023-03-07T23:59:59Z"^^xsd:dateTime)}
+		VALUES (?start ?end) {("2023-01-07T00:00:00Z"^^xsd:dateTime "2023-01-14T23:59:59Z"^^xsd:dateTime)}
 		
 		# Patients with their Events and Beds
 		?p a ho:Patient;
@@ -85,8 +91,8 @@ WHERE {
 		FILTER(!isBlank(?mid)  ||  !isBlank(?relNX1) || !isBlank(?relNX2) || !isBlank(?lz) || !isBlank(?huA)  ||  !isBlank(?sB))
 		
 		# The patients must be from the Input Patients
-		FILTER(?p_id in (2944,2947,3030,3145,3176,3387))
-		FILTER(?p1_id in (2944,2947,3030,3145,3176,3387))
+		FILTER(?p_id in (303,351,1250,1164,1165,104,590,1100,1246,1247,1317))
+		FILTER(?p1_id in (303,351,1250,1164,1165,104,590,1100,1246,1247,1317))
 		FILTER(?p_id > ?p1_id)
 		
 		FILTER((?ev_start >= ?start && ?ev_end <= ?end) 
@@ -110,7 +116,7 @@ WHERE {
 
 	# TEST MICRO
 	{	
-		VALUES (?start ?end) {("2023-03-01T00:00:00Z"^^xsd:dateTime "2023-03-07T23:59:59Z"^^xsd:dateTime)}
+		VALUES (?start ?end) {("2023-01-07T00:00:00Z"^^xsd:dateTime "2023-01-14T23:59:59Z"^^xsd:dateTime)}
 		
 		# Patients with their Events
 		?p a ho:Patient;
@@ -128,8 +134,8 @@ WHERE {
 		?ev ho:hasFound ?m.
 		?ev1 ho:hasFound ?m.
 		
-		FILTER(?p_id in (2944,2947,3030,3145,3176,3387))
-		FILTER(?p1_id in (2944,2947,3030,3145,3176,3387))
+		FILTER(?p_id in (303,351,1250,1164,1165,104,590,1100,1246,1247,1317))
+		FILTER(?p1_id in (303,351,1250,1164,1165,104,590,1100,1246,1247,1317))
 		FILTER(?p_id > ?p1_id)
 		
 		FILTER((?tm_start >= ?start) && (?tm_start <= ?end))
@@ -145,7 +151,7 @@ WHERE {
 		{
 			{
 				SELECT DISTINCT ?bed ?bed1 {
-					VALUES (?start ?end) {("2023-03-01T00:00:00Z"^^xsd:dateTime "2023-03-07T23:59:59Z"^^xsd:dateTime)}
+					VALUES (?start ?end) {("2023-01-07T00:00:00Z"^^xsd:dateTime "2023-01-14T23:59:59Z"^^xsd:dateTime)}
 					
 					# Patients with their Events and Beds
 					?p a ho:Patient;
@@ -162,8 +168,8 @@ WHERE {
 						ho:hasLocation ?bed1.
 					
 					
-					FILTER(?p_id in (2944,2947,3030,3145,3176,3387))
-					FILTER(?p1_id in (2944,2947,3030,3145,3176,3387))
+					FILTER(?p_id in (303,351,1250,1164,1165,104,590,1100,1246,1247,1317))
+					FILTER(?p1_id in (303,351,1250,1164,1165,104,590,1100,1246,1247,1317))
 					FILTER(?p_id > ?p1_id)
 					
 					FILTER((?ev_start >= ?start && ?ev_end <= ?end) 
