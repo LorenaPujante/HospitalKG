@@ -54,7 +54,7 @@ We provide the dataset used for the experiments presented in [~~doi: TODO~~](NUL
 - _max_movements_room_: 5
 - _occupancy_icu_: 0.46
 
-To transform the output from H-Outbreak in an RDF* knowledge graph, we have used [_HospitalGeneratorRDF_](https://github.com/LorenaPujante/HospitalGeneratorRDF). <!--The values for the parameters used to create the hospital and the temporal data are the following:-->
+To transform the output from H-Outbreak in an RDF* knowledge graph, we have used [_HospitalGeneratorRDF_](https://github.com/LorenaPujante/HospitalGeneratorRDF). The file `Dataset/LogicZones.ttl` has been created ad hoc and contains both the nodes and the edges related to the class _LogicZone_. <!--The values for the parameters used to create the hospital and the temporal data are the following:-->
 <!--- _index_: 1600-->
 <!--- _huPerService_: 3-->
 <!--- _nFloors_: 5-->
