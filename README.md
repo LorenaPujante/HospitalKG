@@ -1,8 +1,8 @@
 # HospitalKG
-In this repository, we present the SPARQL* queries developed for "_Spatiotemporal Data Modelling for Epidemiological Research in Hospitals_" [~~doi: TODO~~](NULL) and the dataset in RDF* generated for testing them.
+In this repository, we present the SPARQL* queries developed for "_Spatiotemporal Data Modelling for Epidemiological Research in Hospitals_" [10.1109/JBHI.2024.3417224](https://ieeexplore.ieee.org/document/10568325) and the dataset in RDF* generated for testing them.
 
 ## 1. SPARQL* Queries
-We have designed and implemented in SPARQL* a set of 6 queries based on patients' movements within a hospital that are meant to assist in several epidemiological research tasks. Each query is in a separate file, where the values of the parameters are the ones used in the experiments presented in [~~doi: TODO~~](NULL). The objectives of each query are the following:
+We have designed and implemented in SPARQL* a set of 6 queries based on patients' movements within a hospital that are meant to assist in several epidemiological research tasks. Each query is in a separate file, where the values of the parameters are the ones used in the experiments presented in [10.1109/JBHI.2024.3417224](https://ieeexplore.ieee.org/document/10568325). The objectives of each query are the following:
 - **Q1:** Detection of an outbreak at a _Service_
 - **Q2:** Detection of an outbreak at a _Location_
 - **Q3:** Study of the spread of an outbreak from a patient via analysis of contacts
@@ -11,7 +11,7 @@ We have designed and implemented in SPARQL* a set of 6 queries based on patients
 - **Q6:** Discovery of the index patient
 
 ## 2. RDF* dataset
-We provide the dataset used for the experiments presented in [~~doi: TODO~~](NULL). This is an RDF* knowledge graph that follows the spatiotemporal data model presented in the paper. It is a synthetic dataset whose data have been generated using the [_H-Outbreak_](https://github.com/denissekim/Simulation-Model) simulation model. The values for the parameters of H-Outbreak used to create the dataset are the following:
+We provide the dataset used for the experiments presented in [10.1109/JBHI.2024.3417224](https://ieeexplore.ieee.org/document/10568325) This is an RDF* knowledge graph that follows the spatiotemporal data model presented in the paper. It is a synthetic dataset whose data have been generated using the [_H-Outbreak_](https://github.com/denissekim/Simulation-Model) simulation model. The values for the parameters of H-Outbreak used to create the dataset are the following:
 - _n_patients_: 0.7
 - _steps_: 462 (462×8 = 3696 Hours → 3696/24 = 154 Days → 154/7 = 22 Weeks)
 - _population_: 170000
