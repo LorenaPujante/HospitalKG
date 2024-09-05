@@ -1,6 +1,10 @@
 # HospitalKG
 In this repository, we present the SPARQL* queries developed for "_Spatiotemporal Data Modelling for Epidemiological Research in Hospitals_" [10.1109/JBHI.2024.3417224](https://ieeexplore.ieee.org/document/10568325) and the dataset in RDF* generated for testing them.
 
+## 0. Related Repositories
+Below, we present some other related repositories that may be of interest to you:
+- [HospitalGeneratorRDF](https://github.com/LorenaPujante/HospitalGeneratorRDF): It is also linked to [10.1109/JBHI.2024.3417224](https://ieeexplore.ieee.org/document/10568325)
+
 ## 1. SPARQL* Queries
 We have designed and implemented in SPARQL* a set of 6 queries based on patients' movements within a hospital that are meant to assist in several epidemiological research tasks. Each query is in a separate file, where the values of the parameters are the ones used in the experiments presented in [10.1109/JBHI.2024.3417224](https://ieeexplore.ieee.org/document/10568325). The objectives of each query are the following:
 - **Q1:** Detection of an outbreak at a _Service_
